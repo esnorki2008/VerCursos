@@ -119,25 +119,24 @@ public class ListaDeCursos {
     }
 
     private Cursos SubComparar(ListaDeCursos Aprobados, Cursos CursoPensum) {
+        
 
-
-        boolean Llevar = false;
-        Cursos ActualPre = CursoPensum.Pre().get(null);
-        while (ActualPre != null) {
+        int CantidadPre=CursoPensum.Pre().size();
+        int ContadorCumplido=CantidadPre;
+        for (int i=0;i<CantidadPre;i++) {
+            Cursos ActualPre = CursoPensum.Pre().get(i);
             Cursos ActualApro = Aprobados.get(null);
             while (ActualApro != null) {
                 if (ActualPre.Codigo().equals(ActualApro.Codigo())) {
-                    Llevar = true;
+                    ContadorCumplido--;
                     break;
                 }
                 ActualApro = ActualApro.SigCurso();
             }
-            if(Llevar==false){System.out.println("????????"); 
-           // return null;
-            }
-            ActualPre = CursoPensum.Pre().Siguiente(ActualPre);
+            
+          
         }
-        if (Llevar == true) {
+        if (ContadorCumplido<=0) {
             return CursoPensum;
         } else {
             return null;
@@ -216,6 +215,6 @@ public class ListaDeCursos {
         System.out.println(Actual.Codigo() + "   " + Actual.Nombre());
 
         System.out.println("-----------Pre Requisitos------------------");
-        Actual.Pre().Imprimir();
+       // Actual.Pre().Imprimir();
     }
 }

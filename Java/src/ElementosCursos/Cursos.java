@@ -5,6 +5,8 @@
  */
 package ElementosCursos;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author ENK
@@ -13,7 +15,7 @@ public class Cursos {
     private Boolean Obligatorio;
     private String Codigo;
     private String Nombre;
-    private ListaPre Pre = new ListaPre();
+    private LinkedList<Cursos> Pre = new LinkedList<Cursos>();
     private int Creditos;
    
     private Cursos SiguienteListaCursos;
@@ -29,10 +31,10 @@ public class Cursos {
         this.Creditos = Creditos;
     }
     public void AgregarPre(Cursos Pre){
-         this.Pre.Añadir(Pre);      
+         this.Pre.add(Pre);      
     }
     
-    public void ActualizarPre(ListaPre Prerre){
+    public void ActualizarPre(LinkedList<Cursos> Prerre){
     this.Pre=Prerre;
     }
     
@@ -80,7 +82,7 @@ public class Cursos {
         return Codigo;
     }
 
-    public ListaPre Pre() {
+    public LinkedList<Cursos> Pre() {
         return Pre;
     }
 
