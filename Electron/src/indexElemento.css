@@ -1,0 +1,17 @@
+.Area{
+    margin-left: 10px;
+}
+.izq{
+    width: 85%;
+
+    float:left;
+}
+.der{
+    width: 15%;
+
+    float:left;
+}
+.boton{
+    margin-top: 20px;
+    width: 90%;
+}

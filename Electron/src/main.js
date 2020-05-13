@@ -1,4 +1,6 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow,Menu } = require('electron')
+
+
 
 function createWindow () {
   // Crea la ventana del navegador.
@@ -29,7 +31,24 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+    
+  const mainMenu=Menu.buildFromTemplate(templateMenu);
+  Menu.setApplicationMenu(mainMenu);
+
 })
+
+const templateMenu=[{
+    Label:'File',
+    submenu:[
+      {
+        label:'New Product',
+        accelerator: 'Ctrl+N',
+        click(){
+          alert('New Product')
+        }
+      }
+    ]
+}];
 
 app.on('activate', () => {
   // En macOS es común volver a crear una ventana en la aplicación cuando el
